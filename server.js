@@ -17,6 +17,10 @@ app.set('view engine','ejs');
 app.get('/hello',(req,res)=>{
     
     res.render('pages/index');
+});
+app.get('/search',(req,res)=>{
+    
+    res.render('pages/searches/new');
 })
 
 app.listen(PORT,()=>{
