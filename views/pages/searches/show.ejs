@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
     <title>Document</title>
 </head>
 <body>
     <main>
-        <section>
+        <section id="bookShelvs"> 
            <% booksData.forEach(ele=>{  %>
             <div>
                 <img src=" <%= ele.img %> " alt="">
@@ -17,7 +19,7 @@
                 <h3>Author: 
                     <%= ele.author %>
                 </h3>
-                <p>
+                <p id="dis">
                     <%= ele.description %>
                 </p>
             </div>

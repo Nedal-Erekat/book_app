@@ -60,7 +60,7 @@ app.get('*',(req,res)=>{
 })
 
 function errorHandler(error, request, response) {
-    response.status(500).send(error);
+    response.status(500).render('pages/error');
 }
 
 app.listen(PORT,()=>{

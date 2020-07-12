@@ -1,3 +1,41 @@
-body{
-    background-color: gray;
+@media screen and (min-width:480px) and (max-width:767px){
+    body{
+        background-color: gray;
+    }
+.form-example{
+    
+    /* margin: auto; */
+    border: black 1px solid;
+}
+.form-example div{
+    background-color: rgb(238, 167, 59);
+    padding: 2em;
+    width: 60%;
+    margin: auto;
+}
+#bookShelvs div{
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 1em;
+    box-shadow: 0 0 10px black;
+    background-color: cornsilk;
+
+}
+#dis{
+    height: 70px;
+    overflow-y: scroll;
+}
+#bookShelvs img {
+    margin: auto;
+    display: block;
+    box-shadow: 5px 5px 5px black;
+}
+#bookShelvs h2,h3{
+    font-size: small;
+    font-family: cursive;
+    text-align: center;
+    
+}
+
 }
