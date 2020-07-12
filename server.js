@@ -13,7 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.set('view engine','ejs');
 
-
+app.get('/',(req,res)=>{
+    res.render('pages/index')
+})
 app.get('/searches/new',(req,res)=>{
     
     res.render('pages/searches/new');
@@ -38,7 +40,9 @@ app.get('/searches',(req,res)=>{
         });
         // res.json(data.body.items);
         res.render('pages/searches/show',{booksData: creatBooks});    
-    });
+    })
+    .catch (error => errorHandler(error));
+
 
 })
 function Book(obj) {
@@ -51,6 +55,13 @@ app.get('/hello',(req,res)=>{
     
     res.render('pages/index');
 });
+app.get('*',(req,res)=>{
+    res.send('Not found')
+})
+
+function errorHandler(error, request, response) {
+    response.status(500).send(error);
+}
 
 app.listen(PORT,()=>{
     console.log(`Listening on PORT ${PORT}`);
