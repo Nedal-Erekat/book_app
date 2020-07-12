@@ -18,7 +18,7 @@ app.get('/hello',(req,res)=>{
     
     res.render('pages/index');
 });
-app.get('/search',(req,res)=>{
+app.get('/',(req,res)=>{
     
     res.render('pages/searches/new');
 })
