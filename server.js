@@ -20,6 +20,8 @@ app.use(express.urlencoded({extended:true}));
 app.set('view engine','ejs');            
 
 app.get('/',loadBooks);
+app.get('/books/:id', showBook);
+app.post('/books',displayDetails)
 function loadBooks(req,res) {
     let SQL = `SELECT * FROM books;`;
     client.query(SQL)
@@ -29,7 +31,24 @@ function loadBooks(req,res) {
     })
     
 }
+ 
+function showBook(req,res) {
+    let SQL=`SELECT * FROM books WHERE id=${req.params.id};`
+    client.query(SQL)
+    .then(data=>{
+        res.render('pages/books/show',{booksData:data.rows});
+    });
+}
+function displayDetails(req,res) {
+    let SQL= `INSERT INTO books (author,title,image_url,description,bookshelf) VALUES ($1,$2,$3,$4,$5);`
+    let safeValues=[ req.body.author, req.body.title, req.body.image_url ,req.body.description ,req.body.bookshelf ];
+    client.query(SQL,safeValues)
+    .then((data)=>{
 
+        console.log(data);
+        res.redirect(`/`);
+    })
+}
     
 
 app.get('/searches/new',(req,res)=>{

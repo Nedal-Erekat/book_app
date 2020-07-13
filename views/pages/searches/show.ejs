@@ -25,6 +25,16 @@
                 <p id="dis">
                     <%= ele.description %>
                 </p>
+                <form action="/books" method="post">
+                    <input name="title" type="text" placeholder="title" value=" <%= ele.title %> "> 
+                    <input name="author" type="text" placeholder="author" value="<%= ele.author %>"> 
+                    <input name="image_url" type="text" value="<%= ele.img %>"> 
+                    <TEXtarea name="description" cols="40" rows="10" placeholder="discription" >  "<%= ele.description %>" </TEXtarea>
+                    <input type="text" name="bookshelf"  placeholder="bookshelf">
+                    <input type="submit" value="go">
+                    
+
+                </form>
             </div>
 
            <% }) %>
