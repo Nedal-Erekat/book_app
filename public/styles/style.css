@@ -1,6 +1,6 @@
 @media screen and (min-width:480px) and (max-width:767px){
     body{
-        background-color: gray;
+        background-color: #DDBE9F;
     }
 .form-example{
     
@@ -8,7 +8,7 @@
     border: black 1px solid;
 }
 .form-example div{
-    background-color: rgb(238, 167, 59);
+    background-color: #E0AB80;
     padding: 2em;
     width: 60%;
     margin: auto;
@@ -18,13 +18,25 @@
     margin: 20px auto;
     border-radius: 5px;
     padding: 1em;
-    box-shadow: 0 0 10px black;
-    background-color: cornsilk;
+    box-shadow: 0 0 10px #7c5340;
+    background-color: #ECDFD1;
 
 }
 #dis{
     height: 70px;
     overflow-y: scroll;
+}
+
+/* Search Results */
+#searchHead{
+    font-weight: bold;
+    font-size: large;
+    font-family: cursive;
+    background-color: #7c5340;
+    color: #E0AB80;
+    text-align: center;
+    padding: 5px;
+
 }
 #bookShelvs img {
     margin: auto;
@@ -37,5 +49,10 @@
     text-align: center;
     
 }
-
+#hiddenForm{
+    visibility:hidden;
+}
+}
+@media screen and (min-width:767px){
+    
 }

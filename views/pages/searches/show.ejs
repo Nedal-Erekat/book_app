@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,49 @@
 
     <title>Document</title>
 </head>
+
 <body>
+    <a href="/">main</a>
+       <a href="/searches/new">Search</a>
     <main>
-        <section id="bookShelvs"> 
-           <% booksData.forEach(ele=>{  %>
+        <div id="searchHead">
+            <h2>Search Results</h2>
+        </div>
+        <section id="bookShelvs">
+            <% booksData.forEach(ele=>{  %>
             <div>
                 <img src=" <%= ele.img %> " alt="">
-                <h2> title: 
+                <h2> title:
                     <%= ele.title %>
                 </h2>
-                <h3>Author: 
+                <h3>Author:
                     <%= ele.author %>
                 </h3>
                 <p id="dis">
                     <%= ele.description %>
                 </p>
+                <button id="creatForm"></button>
+                <section id="hiddenForm">
+
+                    <form action="/books" method="post">
+                        <input name="title" type="text" placeholder="title" value=" <%= ele.title %> ">
+                        <input name="author" type="text" placeholder="author" value="<%= ele.author %>">
+                        <input name="image_url" type="text" value="<%= ele.img %>">
+                        <TEXtarea name="description" cols="40" rows="10"
+                            placeholder="discription">  "<%= ele.description %>" </TEXtarea>
+                        <input type="text" name="bookshelf" placeholder="bookshelf">
+                        <input type="submit" value="go">
+
+
+                    </form>
+                </section>
             </div>
 
-           <% }) %>
+            <% }) %>
         </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="../../public/js/app.js"></script>
 </body>
+
 </html>
