@@ -49,7 +49,9 @@
     text-align: center;
     
 }
-
+#hiddenForm{
+    visibility:hidden;
+}
 }
 @media screen and (min-width:767px){
     

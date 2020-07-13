@@ -26,7 +26,6 @@ function loadBooks(req,res) {
     let SQL = `SELECT * FROM books;`;
     client.query(SQL)
     .then(data=>{
-
         res.render('pages/index',{selectedBooks: data.rows})
     })
     
