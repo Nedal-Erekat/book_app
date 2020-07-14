@@ -10,10 +10,14 @@
 
 <body>
     <header>
-       <a href="/">main</a>
-       <a href="/searches/new">Search</a>
+        <button id="btnMain">Main</button>
+        <ul id="navList">
+
+            <a href="/">main</a>
+            <a href="/searches/new">Search</a>
+        </ul>
     </header>
-    
+
     <main>
         <section id="totalBooks">
             <h2><%= selectedBooks.length %></h2>
@@ -21,14 +25,14 @@
         </section>
         <section id="bookDetails">
             <% selectedBooks.forEach(ele=>{ %>
-                <div>
-                    <img src="<% ele.image_url %>" alt="">
-                    <h2><%= ele.title %></h2>
-                    <h3><%= ele.author %></h3>
-                    <p><%= ele.description %></p>
-                    <button>Select</button>
-                </div>
-                <% }) %>
+            <div>
+                <img src="<% ele.image_url %>" alt="">
+                <h2><%= ele.title %></h2>
+                <h3><%= ele.author %></h3>
+                <p><%= ele.description %></p>
+                <button>Select</button>
+            </div>
+            <% }) %>
         </section>
         <!-- <%- include=('books/details'); %> -->
 
@@ -36,7 +40,8 @@
     <footer>
 
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/app.js"></script>
 </body>
 
 </html>
