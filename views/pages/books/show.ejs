@@ -7,57 +7,9 @@
 </head>
 <body>
     <a href="/">main</a>
-    <!-- <section id="bookDetails">
-        <% selectedBooks.forEach(ele=>{ %>
-            <div>
-                <img src="<% ele.image_url %>" alt="">
-                <h2><%= ele.title %></h2>
-                <h3><%= ele.author %></h3>
-                <p><%= ele.description %></p>
-                <button>Select</button>
-            </div>
-            <% }) %>
-    </section> -->
-    <!-- <%- include=('pages/books/details') %> -->
-    <section id="bookShelvs">
-        <% selectedBooks.forEach((ele,indx)=>{  %>
-        <div>
-            <img src=" <%= ele.img %> " alt="">
-            <h2> title:
-                <%= ele.title %>
-            </h2>
-            <h3>Author:
-                <%= ele.author %>
-            </h3>
-            <h3>iban:
-                <%= ele.isbn %>
-            </h3>
-            <p id="dis">
-                <%= ele.description %>
-            </p>
-            <button class="creatForm">Update Details</button>
-            <form action="/books/<%= ele.id %>?_method=delete" method="post">
-                <button class="deleteBtn">Delete Book</button>
-              </form>
-            <section class="hiddenForm">
-                
-                <form action='/books/<%= ele.id %>?_method=put' method="POST">
-                    <input name="title" type="text" placeholder="title" value=" <%= ele.title %> ">
-                    <input name="author" type="text" placeholder="author" value="<%= ele.author %>">
-                    <input name="isbn" type="text" placeholder="isbn" value="<%= ele.isbn %>">
-                    <input name="image_url" type="text" value="<%= ele.img %>">
-                    <TEXtarea name="description" cols="40" rows="10"
-                        placeholder="discription">  "<%= ele.description %>" </TEXtarea>
-                    <input type="text" name="bookshelf" placeholder="bookshelf">
-                    <input type="submit" value="go">
-
-
-                </form>
-            </section>
-        </div>
-
-        <% }) %>
-    </section>
+    
+    <%- include=('books/details') %>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="/app.js"></script>
 </body>
