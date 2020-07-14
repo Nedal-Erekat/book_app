@@ -26,6 +26,9 @@
                 <h3>Author:
                     <%= ele.author %>
                 </h3>
+                <h3>iban:
+                    <%= ele.isbn %>
+                </h3>
                 <p id="dis">
                     <%= ele.description %>
                 </p>
@@ -35,6 +38,7 @@
                     <form action="/books" method="post">
                         <input name="title" type="text" placeholder="title" value=" <%= ele.title %> ">
                         <input name="author" type="text" placeholder="author" value="<%= ele.author %>">
+                        <input name="isbn" type="text" placeholder="isbn" value="<%= ele.isbn %>">
                         <input name="image_url" type="text" value="<%= ele.img %>">
                         <TEXtarea name="description" cols="40" rows="10"
                             placeholder="discription">  "<%= ele.description %>" </TEXtarea>
@@ -50,7 +54,7 @@
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="../../public/js/app.js"></script>
+    <script src="/app.js"></script>
 </body>
 
 </html>
