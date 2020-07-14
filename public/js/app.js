@@ -9,10 +9,13 @@ function hamborger() {
 
 hamborger();
 function handelForm() {
-
-        // $('#hiddenForm').hide();
-        $('#creatForm').click(function() {
-            $('#hiddenForm').show();
+console.log(555);
+        $('.hiddenForm').hide();
+        $('.creatForm').click(function() {
+            console.log();
+            $(this).parent().find('.hiddenForm').slideToggle("fast")
+            // $('#hiddenForm').show();
+             
         })
  
     

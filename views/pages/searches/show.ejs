@@ -17,7 +17,7 @@
             <h2>Search Results</h2>
         </div>
         <section id="bookShelvs">
-            <% booksData.forEach(ele=>{  %>
+            <% booksData.forEach((ele,indx)=>{  %>
             <div>
                 <img src=" <%= ele.img %> " alt="">
                 <h2> title:
@@ -32,8 +32,8 @@
                 <p id="dis">
                     <%= ele.description %>
                 </p>
-                <button id="creatForm"></button>
-                <section id="hiddenForm">
+                <button class="creatForm"></button>
+                <section class="hiddenForm">
 
                     <form action="/books" method="post">
                         <input name="title" type="text" placeholder="title" value=" <%= ele.title %> ">
