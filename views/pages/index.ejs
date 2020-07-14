@@ -5,32 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>book_app</title>
 </head>
 
 <body>
     <header>
-        <button id="btnMain">Main</button>
-        <ul id="navList">
+        <nav>
+            <button id="btnMain">Main</button>
+            <h1 id="headTitle">Book_app</h1>
+            
+        </nav>
+                <ul id="navList">
+                    <li><a href="/">main</a></li>
+                    <li><a href="/searches/new">Search</a></li>
+                </ul>
 
-            <a href="/">main</a>
-            <a href="/searches/new">Search</a>
-        </ul>
     </header>
 
     <main>
         <section id="totalBooks">
-            <h2><%= selectedBooks.length %></h2>
+            <h2>TotalBooks : <%= selectedBooks.length %></h2>
 
         </section>
-        <section id="bookDetails">
+        <section id="bookShelvs">
             <% selectedBooks.forEach(ele=>{ %>
-            <div>
-                <img src="<% ele.image_url %>" alt="">
+            <div >
+                <img src="<%= ele.image_url %>" alt="">
                 <h2><%= ele.title %></h2>
                 <h3><%= ele.author %></h3>
-                <p><%= ele.description %></p>
-                <button>Select</button>
+                <p id="dis"><%= ele.description %></p>
+                <a href="/books/<%= ele.id %>"><button>Select</button></a>
+
             </div>
             <% }) %>
         </section>

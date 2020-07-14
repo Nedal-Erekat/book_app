@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
     <title>Document</title>
 </head>
 <body>
     <a href="/">main</a>
-    <section id="bookDetails">
-        <% selectedBooks.forEach(ele=>{ %>
-            <div>
-                <img src="<% ele.image_url %>" alt="">
-                <h2><%= ele.title %></h2>
-                <h3><%= ele.author %></h3>
-                <p><%= ele.description %></p>
-                <button>Select</button>
-            </div>
-            <% }) %>
-    </section>
-    <!-- <%- include=('pages/books/details') %> -->
+    
+    <%- include('details'); %>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/app.js"></script>
 </body>
 </html>
