@@ -37,6 +37,7 @@ function loadBooks(req, res) {
     let SQL = `SELECT * FROM books;`;
     client.query(SQL)
         .then(data => {
+            console.log();
             res.render('pages/index', { selectedBooks: data.rows })
         })
 
@@ -46,7 +47,7 @@ function showBook(req, res) {
     let SQL = `SELECT * FROM books WHERE id=${req.params.id};`
     client.query(SQL)
         .then(data => {
-            console.log(data.rows);
+            // console.log(data.rows);
             res.render('pages/books/show', { selectedBooks: data.rows });
         });
 }
@@ -60,8 +61,8 @@ function displayDetails(req, res) {
         let sql = `SELECT * FROM books WHERE isbn='${req.body.isbn}';`;
         client.query(sql)
         .then((result) => {
-            console.log('here>>>>>>>>>>');
-            console.log(result.rows[0].id);
+            // console.log('here>>>>>>>>>>');
+            // console.log(result.rows[0].id);
                     res.redirect(`/books/${result.rows[0].id}`);
                 });
 
@@ -88,12 +89,12 @@ function getSearchedBooks(req,res) {    //if I used the post handler I have to c
     let url = `https://www.googleapis.com/books/v1/volumes?q=${q}`;
     superagent.get(url)
         .then(data => {
-            console.log(data.body.items[0].id);
+            // console.log(data.body.items[0].id);
             let creatBooks = data.body.items.map(ele => {
                 let newBook = new Book(ele);
                 return newBook;
             });
-            console.log(creatBooks[0]);
+            // console.log(creatBooks[0]);
             // console.log('>>>>>>>>>. inConstructor');
             res.render('pages/searches/show', { booksData: creatBooks });
         })
@@ -104,7 +105,7 @@ function EditBook(req,res) {
 
     let SQL=`UPDATE books SET author=$1,title=$2,isbn=$3,image_url=$4,description=$5,bookshelf=$6 WHERE id=$7; `
     let values=[req.body.author,req.body.title,req.body.isbn,req.body.image_url,req.body.description,req.body.bookshelf,req.params.id];
-    console.log(values);
+    // console.log(values);
     client.query(SQL,values)
     .then(()=>{
         res.redirect(`/books/${req.params.id}`);
@@ -124,7 +125,7 @@ function deleteBook(req,res) {
 function Book(obj) {
     this.title = obj.volumeInfo.title;//? newValue : defult;
     this.isbn=obj.id;
-    this.img = obj.volumeInfo.imageLinks.thumbnail;
+    this.image_url = obj.volumeInfo.imageLinks.thumbnail;
     this.author = obj.volumeInfo.authors;
     this.description = obj.volumeInfo.description;
 }

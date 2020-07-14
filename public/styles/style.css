@@ -1,17 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Galada&family=Ubuntu&display=swap');
 @media screen and (min-width:480px) and (max-width:767px){
+    *{
+        font-family: 'Galada', cursive;
+
+    }
+    p,TEXtarea{
+        font-family: 'Ubuntu', sans-serif;
+    }
     body{
         background-color: #DDBE9F;
+    background-image: url(bookImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     }
 .form-example{
     
     /* margin: auto; */
-    border: black 1px solid;
+    /* border: black 1px solid; */
 }
 .form-example div{
-    background-color: #E0AB80;
+    background-color: #e0ab80b2;
     padding: 2em;
     width: 60%;
-    margin: auto;
+    margin: 2em auto;
+    box-shadow: 0 0 10px #7c5340;
+}
+.form-example div #name{
+    border: none;
+    border-radius: 5px;
+    height: 3em;
+    width: 100%;
+    text-align: center;
 }
 #bookShelvs div{
     width: 70%;
@@ -25,6 +44,21 @@
 #dis{
     height: 70px;
     overflow-y: scroll;
+}
+.btn,.creatForm,.deleteBtn{
+    width: 8em;
+    height: 4em;
+    border: none;
+    border-radius: 5px;
+    margin: 5px auto;
+    background-color: #7c5340;
+    color: #ECDFD1;
+    display: block;
+}
+.hiddenForm input,TEXtarea{
+    display: block;
+    margin: 5px auto;
+    
 }
 
 /* Search Results */
@@ -49,9 +83,54 @@
     text-align: center;
     
 }
-/* #hiddenForm{
-    visibility:hidden;
-} */
+
+/* nav bar */
+nav{
+    overflow: hidden;
+    background-color: #7c5340;
+    display: flex;
+    box-shadow: 0 0 5px black;
+}
+#btnMain{
+    width: 3.5em;
+    height: 3.5em;
+    background-color: black;
+    color: blanchedalmond;
+    border: none;
+
+}
+#headTitle{
+/* display: block; */
+margin: auto;
+width:max-content;
+
+}
+#navList{
+    flex: none;
+    position: absolute;
+    background-color: rgba(56, 49, 49, 0.479);
+    width: 100%;
+    list-style: none;
+    text-decoration: none;
+}
+#navList li{
+    /* display: block; */
+    text-align: center;
+    height: max-content;
+    padding: 1em ;
+
+}
+#navList li:hover{
+    background-color: rgb(53, 52, 52);
+    /* overflow: hidden; */
+}
+#navList li a{
+    padding: 1em 50%;
+    text-decoration: none;
+    color: white;
+}
+
+
 }
 @media screen and (min-width:767px){
     

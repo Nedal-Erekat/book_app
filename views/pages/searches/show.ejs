@@ -19,7 +19,8 @@
         <section id="bookShelvs">
             <% booksData.forEach((ele,indx)=>{  %>
             <div>
-                <img src=" <%= ele.img %> " alt="">
+                <img src=" <%= ele.image_url %> " alt="">
+                
                 <h2> title:
                     <%= ele.title %>
                 </h2>
@@ -32,18 +33,18 @@
                 <p id="dis">
                     <%= ele.description %>
                 </p>
-                <button class="creatForm"></button>
+                <button class="creatForm">Add</button>
                 <section class="hiddenForm">
 
                     <form action="/books" method="post">
                         <input name="title" type="text" placeholder="title" value=" <%= ele.title %> ">
                         <input name="author" type="text" placeholder="author" value="<%= ele.author %>">
                         <input name="isbn" type="text" placeholder="isbn" value="<%= ele.isbn %>">
-                        <input name="image_url" type="text" value="<%= ele.img %>">
+                        <input name="image_url" type="text" value="<%= ele.image_url %>">
                         <TEXtarea name="description" cols="40" rows="10"
                             placeholder="discription">  "<%= ele.description %>" </TEXtarea>
                         <input type="text" name="bookshelf" placeholder="bookshelf">
-                        <input type="submit" value="go">
+                        <input class="btn" type="submit" value="go">
 
 
                     </form>

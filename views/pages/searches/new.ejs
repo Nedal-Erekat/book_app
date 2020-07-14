@@ -10,19 +10,19 @@
 <body>
     <form action="/searches" method="get" class="form-example">
         <div class="form-example">
-          <label for="name">Enter your book </label>
-          <input type="text" name="name" id="name" required>
+          
+          <input type="text" name="name" id="name" required placeholder="Enter Key Word about book ...">
         </div>
         <div class="form-example">
-          <label for="author">Author: </label>
+          <label for="author">Search by Author: </label>
           <input type="radio" name="tit" value="author" id="author" required>
         </div>
         <div class="form-example">
-            <label for="title">Title: </label>
+            <label for="title">Search by Title: </label>
             <input type="radio" name="tit" value="title" id="title" required>
           </div>
         <div class="form-example">
-          <input type="submit" value="Go!">
+          <input class='btn' type="submit" value="Search">
         </div>
       </form>
 </body>
