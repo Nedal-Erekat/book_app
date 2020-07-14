@@ -5,6 +5,8 @@ const superagent = require('superagent');
 
 const app = express();
 const pg = require('pg');//Database
+const methodOverride = require('method-override');//to use 'put'&'delete'
+
 
 const PORT = process.env.PORT;
 const client = new pg.Client(process.env.DATABASE_URL)
@@ -12,6 +14,7 @@ const client = new pg.Client(process.env.DATABASE_URL)
 //serve CSS file
 app.use(express.static('./public/styles'));
 app.use(express.static('./public/js'));
+app.use(methodOverride('_method'));
 
 // modulwear to be able to send our data in a secure way by useing "post" request
 app.use(express.json());
@@ -24,6 +27,9 @@ app.get('/', loadBooks);
 app.get('/searches/new',getBooks);
 app.get('/searches',getSearchedBooks);
 app.get('/books/:id', showBook);
+app.put('/books/:id', EditBook);
+app.delete('/books/:id', deleteBook);
+
 app.post('/books', displayDetails)
 
 
@@ -92,6 +98,26 @@ function getSearchedBooks(req,res) {    //if I used the post handler I have to c
             res.render('pages/searches/show', { booksData: creatBooks });
         })
         .catch(error => errorHandler(error));
+}
+function EditBook(req,res) {
+    // let {author,title,isbn,image_url,description,bookshelf} = req.body;
+
+    let SQL=`UPDATE books SET author=$1,title=$2,isbn=$3,image_url=$4,description=$5,bookshelf=$6 WHERE id=$7; `
+    let values=[req.body.author,req.body.title,req.body.isbn,req.body.image_url,req.body.description,req.body.bookshelf,req.params.id];
+    console.log(values);
+    client.query(SQL,values)
+    .then(()=>{
+        res.redirect(`/books/${req.params.id}`);
+    })
+
+}
+function deleteBook(req,res) {
+    let SQL=`DELETE FROM books WHERE id=$1;`
+    let val=[req.params.id];
+    client.query(SQL,val)
+    .then(()=>{
+        res.redirect('/');
+    })
 }
 
 
